@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './registration-form-component.component.css'
 })
 export class RegistrationFormComponent {
+  
 
 }

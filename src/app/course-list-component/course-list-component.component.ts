@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { RegistrationFormComponent } from "../registration-form-component/registration-form-component.component";
 
 export interface Formation {
   image: string;
@@ -14,7 +16,7 @@ export interface Formation {
 @Component({
   selector: 'app-course-list-component',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink, RegistrationFormComponent],
   templateUrl: './course-list-component.component.html',
   styleUrl: './course-list-component.component.css',
 })
