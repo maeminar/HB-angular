@@ -8,7 +8,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Inscription</h1>
         <button
           type="button"
           class="btn-close"
@@ -16,12 +16,55 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputFirstName" class="form-label">Prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              placeholder="Entrez votre prénom"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputLastName" class="form-label">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputLastName"
+              placeholder="Entrez votre nom"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label"
+              >Adresse email</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail"
+              aria-describedby="emailHelp"
+              placeholder="Entrez votre email"
+            />
+            <div id="emailHelp" class="form-text">
+              Nous ne partagerons jamais votre email avec qui que ce soit
+              d'autre.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea" class="form-label"
+              >Commentaire</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea"
+              rows="3"
+              placeholder="Entrez votre commentaire"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
       </div>
     </div>
   </div>
