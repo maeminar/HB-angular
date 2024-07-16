@@ -1,1 +1,82 @@
-<p>registration-form-component works!</p>
+<!-- Button to trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#registrationModal"
+>
+  Ouvrir Formulaire d'Inscription
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registrationModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="registrationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">
+          Formulaire d'Inscription
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="Prénom"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Nom"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Numéro de téléphone</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              placeholder="Numéro de téléphone"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

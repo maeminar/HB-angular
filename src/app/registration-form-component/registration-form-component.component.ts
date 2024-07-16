@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './registration-form-component.component.html',
   styleUrl: './registration-form-component.component.css'
 })
-export class RegistrationFormComponentComponent {
+export class RegistrationFormComponent {
 
 }
