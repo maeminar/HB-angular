@@ -23,3 +23,17 @@
 <div>
   <img [src]="imgUrl" alt="" />
 </div>
+
+<div class="row">
+  <div class="col-md-6">
+    <select name="" id="" (change)="selectImage($event)">
+      <option value="">Sélectionner</option>
+      <option value="Foot">Foot</option>
+      <option value="Natation">Natation</option>
+      <option value="Course">Course à pied</option>
+    </select>
+  </div>
+</div>
+<div class="col-md-6">
+  <img [src]="imgSport" alt="" />
+</div>
