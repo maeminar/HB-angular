@@ -51,7 +51,7 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
           </button>
           <app-registration-form-component></app-registration-form-component>
           <div *ngIf="formation.places <= 15">
-            <p>Formation complète</p>
+            <p class="text-danger">Formation complète</p>
           </div>
           <button class="btn btn-info" (click)="afficher(formation)">
             Et ça se passe où ?
@@ -83,7 +83,7 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
           </button>
           <app-registration-form-component></app-registration-form-component>
           <div *ngIf="formation.places <= 15">
-            <p>Formation complète</p>
+            <p class="text-danger">Formation complète</p>
           </div>
           <button class="btn btn-info" (click)="afficher(formation)">
             Et ça se passe où ?
@@ -115,7 +115,7 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
           </button>
           <app-registration-form-component></app-registration-form-component>
           <div *ngIf="formation.places <= 15">
-            <p>Formation complète</p>
+            <p class="text-danger">Formation complète</p>
           </div>
           <!-- Bouton pour afficher l'adresse -->
           <button class="btn btn-info" (click)="afficher(formation)">

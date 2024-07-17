@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RegistrationFormComponent } from '../registration-form-component/registration-form-component.component';
+import { SearchCourseComponent } from '../search-course/search-course.component';
 
 export interface Formation {
   image: string;
@@ -19,7 +20,7 @@ export interface Formation {
 @Component({
   selector: 'app-course-list-component',
   standalone: true,
-  imports: [CommonModule, RouterLink, RegistrationFormComponent],
+  imports: [CommonModule, RouterLink, RegistrationFormComponent, SearchCourseComponent],
   templateUrl: './course-list-component.component.html',
   styleUrl: './course-list-component.component.css',
 })
@@ -147,5 +148,18 @@ export class CourseListComponent {
   afficher(formation: Formation): void {
     alert(`Formation à ${formation.villes}, Adresse : ${formation.adresse}`);
   }
+
+  // selectImage(event:any) {
+  //   let value = event.target.value;
+  //   if(domaine.value === "IT"){
+  //     formation.domaine 
+  //   }
+  //   if(domaine.value === "Dev"){
+  //     formation.domaine
+  //   }
+  //   ifdomaine.value === "Design"){
+  //     this.imgSport = "https://images.unsplash.com/photo-1500468756762-a401b6f17b46?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  //   }
+  // }
 }
 
