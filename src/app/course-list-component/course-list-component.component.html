@@ -1,96 +1,93 @@
-<!-- Utilisez ngFor dans CourseListComponent pour afficher la liste des formations.
-Ajoutez un bouton "S'inscrire" pour chaque formation. -->
-
-<!-- Section avec l'image de fond -->
-<div
-  class="bg-image"
-  style="
-    background-image: url('https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    padding: 220px;
-  "
->
-  <div
-    class="mx-auto text-center"
-    style="color: rgb(255, 255, 255); width: 80%"
-  >
-    <h1 class="mb-4">NOS PROGRAMMES</h1>
-    <h2>
-      En formule ou à la carte, nous te proposons des programmes pertinents pour
-      consolider tes compétences digitales ou faire un premier pas dans cet
-      univers.
-    </h2>
-  </div>
-</div>
-
-<!-- CARDS -->
 <div class="row justify-content-center my-5">
   <div class="col-md-4 mb-4" *ngFor="let formation of formations">
     <div [ngSwitch]="formation.domaine">
-      <div [ngClass]="'first second'"></div>
-    </div>
-    <div class="card p-3 bg-light text-center h-100">
-      <img src="{{ formation.image }}" class="card-img-top mb-3" />
-      <div class="card-body">
-        <h2 class="card-title mb-3">{{ formation.nom }}</h2>
-        <p class="card-text">Stack technique : {{ formation.stack }}</p>
-        <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
-        <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
-        <p class="card-text">Nombre de places : {{ formation.places }}</p>
-        <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
-        <!-- Button trigger modal -->
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          S'inscrire
-        </button>
-        <app-registration-form-component></app-registration-form-component>
-        <div *ngIf="formation.places <= 15">
-          <p>Formation complète</p>
+      <div
+        *ngSwitchCase="'IT'"
+        class="card p-3 text-center h-100"
+        style="background-color: rgb(136, 148, 202)"
+      >
+        <img src="{{ formation.image }}" class="card-img-top mb-3" />
+        <div class="card-body">
+          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
+          <p class="card-text">Domaine : {{ formation.domaine }}</p>
+          <p class="card-text">Stack technique : {{ formation.stack }}</p>
+          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
+          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
+          <p class="card-text">Nombre de places : {{ formation.places }}</p>
+          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
+          <!-- Bouton pour déclencher le modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            S'inscrire
+          </button>
+          <app-registration-form-component></app-registration-form-component>
+          <div *ngIf="formation.places <= 15">
+            <p>Formation complète</p>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngSwitchCase="'Dev'"
+        class="card p-3 text-center h-100"
+        style="background-color: rgb(148, 209, 148)"
+      >
+        <img src="{{ formation.image }}" class="card-img-top mb-3" />
+        <div class="card-body">
+          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
+          <p class="card-text">Domaine : {{ formation.domaine }}</p>
+          <p class="card-text">Stack technique : {{ formation.stack }}</p>
+          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
+          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
+          <p class="card-text">Nombre de places : {{ formation.places }}</p>
+          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
+          <!-- Bouton pour déclencher le modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            S'inscrire
+          </button>
+          <app-registration-form-component></app-registration-form-component>
+          <div *ngIf="formation.places <= 15">
+            <p>Formation complète</p>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngSwitchCase="'Design'"
+        class="card p-3 text-center h-100"
+        style="background-color: rgb(223, 180, 39)"
+      >
+        <img src="{{ formation.image }}" class="card-img-top mb-3" />
+        <div class="card-body">
+          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
+          <p class="card-text">Domaine : {{ formation.domaine }}</p>
+          <p class="card-text">Stack technique : {{ formation.stack }}</p>
+          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
+          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
+          <p class="card-text">Nombre de places : {{ formation.places }}</p>
+          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
+          <!-- Bouton pour déclencher le modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            S'inscrire
+          </button>
+          <app-registration-form-component></app-registration-form-component>
+          <div *ngIf="formation.places <= 15">
+            <p>Formation complète</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Ajoutez un ngSwitch dans CourseListComponent pour afficher différentes couleurs de fond 
- pour les cartes de formation en fonction du domaine (IT, Design ou Dev).
-Utilisez la directive ngSwitch pour appliquer des textes et classes CSS différentes aux 
-cartes de formation en fonction de la valeur de la propriété domaine.
-Les cartes de formation doivent avoir des couleurs de fond distinctes et le t domaine correspondante: 
-par exemple, bleu pour Infra, jaune pour Design, et vert pour Dev. -->
