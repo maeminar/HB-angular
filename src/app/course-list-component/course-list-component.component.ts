@@ -12,6 +12,8 @@ export interface Formation {
   places: number;
   tarif: number;
   domaine: string;
+  villes: string;
+  adresse: string,
 }
 
 @Component({
@@ -33,6 +35,8 @@ export class CourseListComponent {
       places: 12,
       tarif: 1800,
       domaine: "Dev",
+      villes: "Paris",
+      adresse : "123 rue des Champs"
     },
     {
       image:
@@ -44,6 +48,8 @@ export class CourseListComponent {
       places: 19,
       tarif: 2000,
       domaine: "Design",
+      villes: "Lyon",
+      adresse: "123 Rue de l\'IT"
     },
     {
       image:
@@ -55,6 +61,8 @@ export class CourseListComponent {
       places: 13,
       tarif: 1450,
       domaine: "Design",
+      villes: "Marseille",
+      adresse: "45 route des dév"
     },
     {
       image:
@@ -66,6 +74,8 @@ export class CourseListComponent {
       places: 15,
       tarif: 480,
       domaine: "Dev",
+      villes: "Besac",
+      adresse: "20 montée de Montesquieu"
     },
     {
       image:
@@ -77,6 +87,8 @@ export class CourseListComponent {
       places: 18,
       tarif: 850,
       domaine: "Dev",
+      villes: "Lyon",
+      adresse: "456 avenue des Lilas"
     },
     {
       image:
@@ -88,6 +100,8 @@ export class CourseListComponent {
       places: 12,
       tarif: 1280,
       domaine: "IT",
+      villes: "Toulouse",
+      adresse: "101 rue de la Fontaine"
     },
     {
       image:
@@ -98,7 +112,9 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 3',
       places: 11,
       tarif: 3800,
-      domaine: "Dev"
+      domaine: "Dev",
+      villes: "Bordeaux",
+      adresse: "222 chemin des Rose"
     },
     {
       image:
@@ -110,6 +126,8 @@ export class CourseListComponent {
       places: 14,
       tarif: 1700,
       domaine: "IT",
+      villes: "Lille",
+      adresse: "222 route de la Soie"
     },
     {
       image:
@@ -121,6 +139,13 @@ export class CourseListComponent {
       places: 12,
       tarif: 1800,
       domaine: "Dev",
+      villes: "Montpellier",
+      adresse: "888 avenue des Étoiles"
     },
   ];
-}
+
+
+  afficher(formation: Formation): void {
+    alert(formation.adresse);
+  }}
+

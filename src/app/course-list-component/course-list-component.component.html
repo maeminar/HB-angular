@@ -1,10 +1,35 @@
+<!-- Utilisez ngFor dans CourseListComponent pour afficher la liste des formations.
+Ajoutez un bouton "S'inscrire" pour chaque formation. -->
+
+<!-- Section avec l'image de fond -->
+<div
+  class="bg-image"
+  style="
+    background-image: url('https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    padding: 220px;
+  "
+>
+  <div
+    class="mx-auto text-center"
+    style="color: rgb(255, 255, 255); width: 80%"
+  >
+    <h1 class="mb-4">NOS PROGRAMMES</h1>
+    <h2>
+      En formule ou à la carte, nous te proposons des programmes pertinents pour
+      consolider tes compétences digitales ou faire un premier pas dans cet
+      univers.
+    </h2>
+  </div>
+</div>
+
+<!-- CARDS -->
 <div class="row justify-content-center my-5">
   <div class="col-md-4 mb-4" *ngFor="let formation of formations">
     <div [ngSwitch]="formation.domaine">
       <div
         *ngSwitchCase="'IT'"
         class="card p-3 text-center h-100"
-        style="background-color: rgb(136, 148, 202)"
+        style="background-color: rgb(164, 164, 223)"
       >
         <img src="{{ formation.image }}" class="card-img-top mb-3" />
         <div class="card-body">
@@ -28,12 +53,15 @@
           <div *ngIf="formation.places <= 15">
             <p>Formation complète</p>
           </div>
+          <button class="btn btn-info" (click)="afficher(formation)">
+            Et ça se passe où ?
+          </button>
         </div>
       </div>
       <div
         *ngSwitchCase="'Dev'"
         class="card p-3 text-center h-100"
-        style="background-color: rgb(148, 209, 148)"
+        style="background-color: rgb(122, 204, 122)"
       >
         <img src="{{ formation.image }}" class="card-img-top mb-3" />
         <div class="card-body">
@@ -57,12 +85,15 @@
           <div *ngIf="formation.places <= 15">
             <p>Formation complète</p>
           </div>
+          <button class="btn btn-info" (click)="afficher(formation)">
+            Et ça se passe où ?
+          </button>
         </div>
       </div>
       <div
         *ngSwitchCase="'Design'"
         class="card p-3 text-center h-100"
-        style="background-color: rgb(223, 180, 39)"
+        style="background-color: rgb(224, 184, 51)"
       >
         <img src="{{ formation.image }}" class="card-img-top mb-3" />
         <div class="card-body">
@@ -86,8 +117,22 @@
           <div *ngIf="formation.places <= 15">
             <p>Formation complète</p>
           </div>
+          <!-- Bouton pour afficher l'adresse -->
+          <button class="btn btn-info" (click)="afficher(formation)">
+            Et ça se passe où ?
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- (click) :
+Implémentez un bouton dans chaque carte de formation qui, lorsqu'il est cliqué, affiche une alerte avec les villes où se déroulera la formation.
+Ajoutez un bouton dans chaque carte de formation avec un gestionnaire d'événements (click).
+Lorsque le bouton est cliqué, affichez une alerte contenant les villes où la formation se déroulera et l'adresse.
+
+(change) :
+Ajoutez un menu déroulant dans SearchCourseComponent pour filtrer les formations par domaine. Utilisez (change) pour mettre à jour l'affichage des formations en fonction de la sélection.
+Ajoutez un élément <select> avec des options pour les domaines (Infra Design, Dev).
+Ajoutez un gestionnaire d'événements (change) qui met à jour la liste des formations affichées en fonction du domaine sélectionné. -->
