@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { RegistrationFormComponent } from "../registration-form-component/registration-form-component.component";
+import { RegistrationFormComponent } from '../registration-form-component/registration-form-component.component';
 
 export interface Formation {
   image: string;
@@ -16,15 +16,15 @@ export interface Formation {
 @Component({
   selector: 'app-course-list-component',
   standalone: true,
-  imports: [NgFor, RouterLink, RegistrationFormComponent],
+  imports: [CommonModule, RouterLink, RegistrationFormComponent],
   templateUrl: './course-list-component.component.html',
   styleUrl: './course-list-component.component.css',
 })
 export class CourseListComponent {
-
   formations: Formation[] = [
     {
-      image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'CONCEPTEUR DÉVELOPPEUR D’APPLICATIONS',
       stack: 'Java, Spring, Angular',
       dates: '17/09/2024',
@@ -33,7 +33,8 @@ export class CourseListComponent {
       tarif: 1800,
     },
     {
-      image: 'https://images.unsplash.com/photo-1678690832871-8b9993c76aa8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1678690832871-8b9993c76aa8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'CONCEPTEUR DESIGNER UI',
       stack: 'Adobe XD, Figma, Sketch',
       dates: '18/12/2024',
@@ -42,7 +43,8 @@ export class CourseListComponent {
       tarif: 2000,
     },
     {
-      image: 'https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'CHARGÉ DE COMMUNICATION DIGITALE',
       stack: 'WordPress, SEO, Google Analytics',
       dates: '12/09/2024',
@@ -51,7 +53,8 @@ export class CourseListComponent {
       tarif: 1450,
     },
     {
-      image: 'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'DÉVELOPPEUR WEB ET WEB MOBILE',
       stack: 'HTML, CSS, JavaScript, React',
       dates: '12/07/2024',
@@ -60,7 +63,8 @@ export class CourseListComponent {
       tarif: 480,
     },
     {
-      image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: '[ALTERNANCE] DÉVELOPPEUR WEB ET WEB MOBILE',
       stack: 'Node.js, Express, MongoDB',
       dates: '17/09/2024',
@@ -69,7 +73,8 @@ export class CourseListComponent {
       tarif: 850,
     },
     {
-      image: 'https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'PARCOURS SUR MESURE',
       stack: 'Python, Django, Flask',
       dates: '27/09/2024',
@@ -78,7 +83,8 @@ export class CourseListComponent {
       tarif: 1280,
     },
     {
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'DÉVELOPPEUR .NET',
       stack: 'C#, .NET, Azure',
       dates: '05/09/2024',
@@ -87,7 +93,8 @@ export class CourseListComponent {
       tarif: 3800,
     },
     {
-      image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: 'TECHNICIEN D’ASSISTANCE EN INFORMATIQUE',
       stack: 'Windows, Linux, Networking',
       dates: '17/11/2024',
@@ -96,7 +103,8 @@ export class CourseListComponent {
       tarif: 1700,
     },
     {
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image:
+        'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       nom: '[ALTERNANCE] DÉVELOPPEUR FULLSTACK JAVA/ANGULAR',
       stack: 'Java, Spring Boot, Angular',
       dates: '17/10/2024',

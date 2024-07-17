@@ -1,0 +1,25 @@
+<h1>Entrainement exercices</h1>
+<p *ngIf="statuUser === 'deconnecte'">
+  <button>Se connecter</button>
+  <button>S'inscrire</button>
+</p>
+<div *ngIf="statuUser === 'connecte'">
+  <button>Se déconnecter</button>
+  <div [ngSwitch]="roleUser">
+    <span *ngSwitchCase="'client'">Tu es client</span>
+    <span *ngSwitchCase="'employe'">Tu es employé</span>
+    <span *ngSwitchDefault>Tu es admin</span>
+  </div>
+</div>
+
+<button (click)="bonjour()">Bonjour</button>
+<p *ngIf="isVisible">{{ hello }}</p>
+
+<div>
+  <button (click)="afficher('glaces')">Glaces</button>
+  <button (click)="afficher('smoothie')">Smoothie</button>
+  <button (click)="afficher('fruits')">Fruits</button>
+</div>
+<div>
+  <img [src]="imgUrl" alt="" />
+</div>
