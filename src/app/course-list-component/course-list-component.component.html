@@ -25,6 +25,9 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
 <!-- CARDS -->
 <div class="row justify-content-center my-5">
   <div class="col-md-4 mb-4" *ngFor="let formation of formations">
+    <div [ngSwitch]="formation.domaine">
+      <div [ngClass]="'first second'"></div>
+    </div>
     <div class="card p-3 bg-light text-center h-100">
       <img src="{{ formation.image }}" class="card-img-top mb-3" />
       <div class="card-body">
@@ -44,6 +47,9 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
           S'inscrire
         </button>
         <app-registration-form-component></app-registration-form-component>
+        <div *ngIf="formation.places <= 15">
+          <p>Formation complète</p>
+        </div>
       </div>
     </div>
   </div>
@@ -81,3 +87,10 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
     </div>
   </div>
 </div>
+
+<!-- Ajoutez un ngSwitch dans CourseListComponent pour afficher différentes couleurs de fond 
+ pour les cartes de formation en fonction du domaine (IT, Design ou Dev).
+Utilisez la directive ngSwitch pour appliquer des textes et classes CSS différentes aux 
+cartes de formation en fonction de la valeur de la propriété domaine.
+Les cartes de formation doivent avoir des couleurs de fond distinctes et le t domaine correspondante: 
+par exemple, bleu pour Infra, jaune pour Design, et vert pour Dev. -->

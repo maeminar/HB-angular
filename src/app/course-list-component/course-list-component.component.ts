@@ -11,6 +11,7 @@ export interface Formation {
   titre: string;
   places: number;
   tarif: number;
+  domaine: string;
 }
 
 @Component({
@@ -31,6 +32,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 5',
       places: 12,
       tarif: 1800,
+      domaine: "Dev",
     },
     {
       image:
@@ -41,6 +43,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 6',
       places: 19,
       tarif: 2000,
+      domaine: "Design",
     },
     {
       image:
@@ -51,6 +54,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 4',
       places: 13,
       tarif: 1450,
+      domaine: "Design",
     },
     {
       image:
@@ -61,6 +65,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 5',
       places: 15,
       tarif: 480,
+      domaine: "Dev",
     },
     {
       image:
@@ -71,6 +76,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 5',
       places: 18,
       tarif: 850,
+      domaine: "Dev",
     },
     {
       image:
@@ -81,6 +87,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 1',
       places: 12,
       tarif: 1280,
+      domaine: "IT",
     },
     {
       image:
@@ -91,6 +98,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 3',
       places: 11,
       tarif: 3800,
+      domaine: "Dev"
     },
     {
       image:
@@ -101,6 +109,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 2',
       places: 14,
       tarif: 1700,
+      domaine: "IT",
     },
     {
       image:
@@ -111,6 +120,7 @@ export class CourseListComponent {
       titre: 'Titre Professionnel RNCP de niveau 5',
       places: 12,
       tarif: 1800,
+      domaine: "Dev",
     },
   ];
 }
