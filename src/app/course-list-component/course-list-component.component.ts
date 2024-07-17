@@ -144,8 +144,8 @@ export class CourseListComponent {
     },
   ];
 
-
   afficher(formation: Formation): void {
-    alert(formation.adresse);
-  }}
+    alert(`Formation à ${formation.villes}, Adresse : ${formation.adresse}`);
+  }
+}
 
