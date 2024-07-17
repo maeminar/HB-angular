@@ -9,6 +9,7 @@ import { SearchCourseComponent } from "../search-course/search-course.component"
   styleUrl: './registration-form-component.component.css'
 })
 export class RegistrationFormComponent {
-  
-
+  alertInsription():void {
+    alert("Vous êtes inscrit");
+  }
 }

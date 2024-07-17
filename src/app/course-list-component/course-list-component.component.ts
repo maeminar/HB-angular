@@ -148,18 +148,5 @@ export class CourseListComponent {
   afficher(formation: Formation): void {
     alert(`Formation à ${formation.villes}, Adresse : ${formation.adresse}`);
   }
-
-  // selectImage(event:any) {
-  //   let value = event.target.value;
-  //   if(domaine.value === "IT"){
-  //     formation.domaine 
-  //   }
-  //   if(domaine.value === "Dev"){
-  //     formation.domaine
-  //   }
-  //   ifdomaine.value === "Design"){
-  //     this.imgSport = "https://images.unsplash.com/photo-1500468756762-a401b6f17b46?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  //   }
-  // }
 }
 

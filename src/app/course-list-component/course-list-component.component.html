@@ -25,7 +25,10 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
 <!-- CARDS -->
 <div class="row justify-content-center my-5">
   <div class="col-md-4 mb-4" *ngFor="let formation of formations">
-    <div [ngSwitch]="formation.domaine">
+    <div
+      [ngSwitch]="formation.domaine"
+      class="card text-center h-100 shadow mb-5 bg-white rounded"
+    >
       <div
         *ngSwitchCase="'IT'"
         class="card p-3 text-center h-100"

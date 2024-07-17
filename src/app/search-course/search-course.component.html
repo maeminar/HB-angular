@@ -1,1 +1,18 @@
 <p>search-course works!</p>
+<!-- (change) :
+Ajoutez un menu déroulant dans SearchCourseComponent pour filtrer les formations par domaine. 
+Utilisez (change) pour mettre à jour l'affichage des formations en fonction de la sélection.
+Ajoutez un élément <select> avec des options pour les domaines (Infra Design, Dev).
+Ajoutez un gestionnaire d'événements (change) qui met à jour la liste des formations affichées 
+en fonction du domaine sélectionné. -->
+
+<div class="row">
+  <div class="col-md-6">
+    <select name="" id="" (change)="selectDomain($event)">
+      <option value="">Sélectionner</option>
+      <option value="Foot">Foot</option>
+      <option value="Natation">Natation</option>
+      <option value="Course">Course à pied</option>
+    </select>
+  </div>
+</div>
