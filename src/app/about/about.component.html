@@ -37,3 +37,24 @@
 <div class="col-md-6">
   <img [src]="imgSport" alt="" />
 </div>
+<div [ngClass]="{ active: isActive, disabled: isDisabled }">
+  Ce texte change de style
+</div>
+<button (click)="isActive = !isActive">Toogle actif</button>
+<button (click)="isDisabled = !isDisabled">Toogle non actif</button>
+<div
+  [ngStyle]="{
+    'background-color': isLight ? 'yellow' : 'white',
+    'font-size.px': fontSize
+  }"
+>
+  Le texte a un style dynamique
+</div>
+
+<button (click)="isLight = !isLight">Toggle highlight</button>
+<button (click)="fontSize = fontSize + 2">Augmente fontsize</button>
+<button (click)="fontSize = fontSize - 2">Diminue fontsize</button>
+
+<h2>{{ salut }}</h2>
+<h3>{{ resultat }}</h3>
+<!-- Implémentation du service bonjour ici -->

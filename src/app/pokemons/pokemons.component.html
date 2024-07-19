@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-3 border" *ngFor="let pokemon of pokemons">
+    <p>ID: {{ pokemon.id }}</p>
+    <h1>Name: {{ pokemon.name }}</h1>
+    <p>HP: {{ pokemon.hp }}</p>
+    <p>CP: {{ pokemon.cp }}</p>
+    <img [src]="pokemon.picture" alt="{{ pokemon.name }}" class="img-fluid" />
+    <p>Type: {{ pokemon.types }}</p>
+    <p>Crée le: {{ pokemon.created }}</p>
+  </div>
+</div>

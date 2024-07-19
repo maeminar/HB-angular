@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RegistrationFormComponent } from '../registration-form-component/registration-form-component.component';
+import { BonjourService } from '../../shared/bonjour.service';
+import { OnInit } from '@angular/core';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { RegistrationFormComponent } from '../registration-form-component/regist
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
   statuUser: string = 'connecte';
   roleUser: string = 'client'; // Ou admin ou emplye
 
@@ -54,5 +56,19 @@ export class AboutComponent {
       this.imgSport = "https://images.unsplash.com/photo-1500468756762-a401b6f17b46?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   }
+
+isActive = true;
+isDisabled = false;
+isLight:boolean = true;
+fontSize: number = 20;
+salut : string = "";
+resultat: number = 0;
+
+constructor(private service : BonjourService) {}
+ngOnInit(): void {
+  this.salut = this.service.saluer();
+  this.resultat = this.service.additioner(15,5)
+}
+
 
 }

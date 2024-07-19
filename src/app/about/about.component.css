@@ -1,3 +1,11 @@
 img {
     width: 30%;
 }
+
+.active {
+    color: green
+}
+
+.disabled {
+    color: red
+}
