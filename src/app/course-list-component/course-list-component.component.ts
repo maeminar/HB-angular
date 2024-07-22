@@ -18,6 +18,7 @@ export class CourseListComponent implements OnInit{
 
   formations:Iformations [] = [];
   argentParent:number = 50;
+  resultat:number = 0;
 
   constructor (private service: FormationService) {}
 
@@ -30,6 +31,9 @@ export class CourseListComponent implements OnInit{
     alert(`Formation à ${formation.villes}, Adresse : ${formation.adresse}`);
   }
 
+  multiplier(montant:number) {
+    this.resultat = montant*2;
+  }
 
 }
 

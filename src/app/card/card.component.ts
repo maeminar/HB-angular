@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,6 +8,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
+  nombre:number = 0;
   @Input() argentdePoche:number|undefined= 0;
+  @Output() numberEnfant = new EventEmitter<number>();
+
+  calcul() {
+    this.nombre++;
+    this.numberEnfant.emit(this.nombre)
+  }
 
 }
