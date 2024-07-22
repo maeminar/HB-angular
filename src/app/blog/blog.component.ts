@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IBlog } from '../../shared/entities';
+import { IBlog, IComment } from '../../shared/entities';
 import { BlogService } from '../../shared/blog.service';
 
 @Component({
@@ -7,18 +7,29 @@ import { BlogService } from '../../shared/blog.service';
   standalone: true,
   imports: [],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.css'
+  styleUrls: ['./blog.component.css'] // Correction : styleUrls au lieu de styleUrl
 })
-export class BlogComponent implements OnInit{
+export class BlogComponent implements OnInit {
 
-  articles:IBlog[]=[];
-  service= inject(BlogService)
+  articles: IBlog[] = [];
+  comments: IComment[] = [];
+  private blogService = inject(BlogService); // Correction : utilisation de inject pour BlogService
 
-ngOnInit(): void {
-  this.getBlog();
+  ngOnInit(): void {
+    this.getBlog();
+    this.getComments();
+  }
+
+  getBlog() {
+    this.blogService.fetchAllBlogs().subscribe((data: IBlog[]) => {
+      this.articles = data;
+    });
+  }
+
+  getComments() {
+    this.blogService.fetchAllComments().subscribe((data: IComment[]) => {
+      this.comments = data;
+    });
+  }
 }
 
-getBlog(){
-  this.service.fetchAll().subscribe(data => {this.articles = data;})
-};
-}

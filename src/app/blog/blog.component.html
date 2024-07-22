@@ -9,3 +9,15 @@
   </div>
   }
 </div>
+<div>
+  @for (comment of comments; track comment.id) {
+  <div class="card" style="width: 18rem red">
+    <div class="card-body">
+      <h5 class="card-title">{{ comment.name }}</h5>
+      <h6 class="card-text">{{ comment.email }}</h6>
+      <p class="card-text">{{ comment.body }}</p>
+      <span>{{ comment.id }}</span>
+    </div>
+  </div>
+  }
+</div>
