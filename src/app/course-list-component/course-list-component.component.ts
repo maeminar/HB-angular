@@ -5,17 +5,19 @@ import { RegistrationFormComponent } from '../registration-form-component/regist
 import { SearchCourseComponent } from '../search-course/search-course.component';
 import { Iformations } from '../../shared/iformations';
 import { FormationService } from '../../shared/formation.service';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-course-list-component',
   standalone: true,
-  imports: [CommonModule, RouterLink, RegistrationFormComponent, SearchCourseComponent],
+  imports: [CommonModule, RouterLink, RegistrationFormComponent, SearchCourseComponent, CardComponent],
   templateUrl: './course-list-component.component.html',
   styleUrl: './course-list-component.component.css',
 })
 export class CourseListComponent implements OnInit{
 
   formations:Iformations [] = [];
+  argentParent:number = 50;
 
   constructor (private service: FormationService) {}
 
@@ -27,5 +29,7 @@ export class CourseListComponent implements OnInit{
   afficher(formation: Iformations): void {
     alert(`Formation à ${formation.villes}, Adresse : ${formation.adresse}`);
   }
+
+
 }
 
