@@ -4,12 +4,13 @@ import { RouterLink } from '@angular/router';
 import { RegistrationFormComponent } from '../registration-form-component/registration-form-component.component';
 import { BonjourService } from '../../shared/bonjour.service';
 import { OnInit } from '@angular/core';
+import { NgForm, FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLink, RegistrationFormComponent],
+  imports: [CommonModule, RouterLink, RegistrationFormComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
@@ -70,5 +71,21 @@ ngOnInit(): void {
   this.resultat = this.service.additioner(15,5)
 }
 
+//   Mon 1er formulaire
+//   username:string = "";
+//   password:string = "";
+// onSubmit(form: NgForm) {
+//   console.log(form.value);
+// }
+
+//   // Mon 2eme formulaire
+public form: FormGroup = new FormGroup({
+  name: new FormControl(''),
+  email: new FormControl(''),
+});
+submit() {
+  console.log(this.form.get('name')?.value);
+  console.log(this.form.get('email')?.value);
+}
 
 }

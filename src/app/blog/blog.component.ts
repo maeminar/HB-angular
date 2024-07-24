@@ -3,6 +3,7 @@ import { IBlog, IComment, IUsers } from '../../shared/entities';
 import { BlogService } from '../../shared/blog.service';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-blog',
   standalone: true,
@@ -47,6 +48,7 @@ export class BlogComponent implements OnInit {
     const user = this.users.find(user => user.id === userId);
     return user ? user.name : 'Pas de user trouvé';
   }
+
 }
 
 

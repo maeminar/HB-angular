@@ -6,11 +6,12 @@ import { SearchCourseComponent } from '../search-course/search-course.component'
 import { Iformations } from '../../shared/iformations';
 import { FormationService } from '../../shared/formation.service';
 import { CardComponent } from '../card/card.component';
+import { CreateFormationComponent } from '../create-formation/create-formation.component';
 
 @Component({
   selector: 'app-course-list-component',
   standalone: true,
-  imports: [CommonModule, RouterLink, RegistrationFormComponent, SearchCourseComponent, CardComponent],
+  imports: [CommonModule, RouterLink, RegistrationFormComponent, SearchCourseComponent, CardComponent, CreateFormationComponent],
   templateUrl: './course-list-component.component.html',
   styleUrl: './course-list-component.component.css',
 })

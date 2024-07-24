@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Ajouter une nouvelle formation</h2>
+  <form (ngSubmit)="Submit()" [formGroup]="form">
+    <div class="mb-3">
+      <label for="name">Nom de la formation :</label>
+      <input id="name" type="text" formControlName="nom" />
+    </div>
+    <div class="mb-3">
+      <label for="img">Image :</label>
+      <input id="img" type="url" formControlName="image" />
+    </div>
+    <div>
+      <label for="stack">Stack technique :</label>
+      <input id="stack" type="text" formControlName="stack" />
+    </div>
+    <div class="mb-3">
+      <label for="date">Dates de rentrée :</label>
+      <input id="date" type="date" formControlName="dates" />
+    </div>
+    <div class="mb-3">
+      <label for="titre">Titre obtenu :</label>
+      <input id="titre" type="text" formControlName="titre" />
+    </div>
+    <div class="mb-3">
+      <label for="number">Nombres de places :</label>
+      <input id="number" type="number" formControlName="places" />
+    </div>
+    <div class="mb-3">
+      <label for="number">Tarif :</label>
+      <input id="number" type="number" formControlName="tarif" />
+    </div>
+    <div class="mb-3">
+      <label for="price">Domaine :</label>
+      <input id="price" type="text" formControlName="domaine" />
+    </div>
+    <div class="mb-3">
+      <label for="price">Ville :</label>
+      <input id="price" type="text" formControlName="villes" />
+    </div>
+    <div class="mb-3">
+      <label for="price">Adresse de la formation :</label>
+      <input id="price" type="text" formControlName="adresse" />
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>

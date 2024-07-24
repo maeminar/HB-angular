@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
 import { BlogService } from '../../shared/blog.service';
 import { ActivatedRoute } from '@angular/router';
 import { IBlog } from '../../shared/entities';
+
 
 @Component({
   selector: 'app-blog-detail',
@@ -26,4 +27,5 @@ export class BlogDetailComponent implements OnInit {
       this.article = data;
     })
   }
+
 }

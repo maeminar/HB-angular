@@ -25,14 +25,14 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
 <!-- CARDS -->
 <div class="row justify-content-center my-5">
   <div class="col-md-4 mb-4" *ngFor="let formation of formations">
-    <div
-      [ngSwitch]="formation.domaine"
-      class="card text-center h-100 shadow mb-5 bg-white rounded"
-    >
+    <div class="card text-center h-100 shadow mb-5 bg-white rounded">
       <div
-        *ngSwitchCase="'IT'"
-        class="card p-3 text-center h-100"
-        style="background-color: rgb(164, 164, 223)"
+        [ngClass]="{
+          'p-3 text-center h-100': true,
+          'bg-it': formation.domaine === 'IT',
+          'bg-dev': formation.domaine === 'Dev',
+          'bg-design': formation.domaine === 'Design'
+        }"
       >
         <img src="{{ formation.image }}" class="card-img-top mb-3" />
         <div class="card-body">
@@ -56,71 +56,6 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
           <div *ngIf="formation.places <= 15">
             <p class="text-danger">Formation complète</p>
           </div>
-          <button class="btn btn-info" (click)="afficher(formation)">
-            Et ça se passe où ?
-          </button>
-        </div>
-      </div>
-      <div
-        *ngSwitchCase="'Dev'"
-        class="card p-3 text-center h-100"
-        style="background-color: rgb(122, 204, 122)"
-      >
-        <img src="{{ formation.image }}" class="card-img-top mb-3" />
-        <div class="card-body">
-          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
-          <p class="card-text">Domaine : {{ formation.domaine }}</p>
-          <p class="card-text">Stack technique : {{ formation.stack }}</p>
-          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
-          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
-          <p class="card-text">Nombre de places : {{ formation.places }}</p>
-          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
-          <!-- Bouton pour déclencher le modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            S'inscrire
-          </button>
-          <app-registration-form-component></app-registration-form-component>
-          <div *ngIf="formation.places <= 15">
-            <p class="text-danger">Formation complète</p>
-          </div>
-          <button class="btn btn-info" (click)="afficher(formation)">
-            Et ça se passe où ?
-          </button>
-        </div>
-      </div>
-      <div
-        *ngSwitchCase="'Design'"
-        class="card p-3 text-center h-100"
-        style="background-color: rgb(224, 184, 51)"
-      >
-        <img src="{{ formation.image }}" class="card-img-top mb-3" />
-        <div class="card-body">
-          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
-          <p class="card-text">Domaine : {{ formation.domaine }}</p>
-          <p class="card-text">Stack technique : {{ formation.stack }}</p>
-          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
-          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
-          <p class="card-text">Nombre de places : {{ formation.places }}</p>
-          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
-          <!-- Bouton pour déclencher le modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            S'inscrire
-          </button>
-          <app-registration-form-component></app-registration-form-component>
-          <div *ngIf="formation.places <= 15">
-            <p class="text-danger">Formation complète</p>
-          </div>
-          <!-- Bouton pour afficher l'adresse -->
           <button class="btn btn-info" (click)="afficher(formation)">
             Et ça se passe où ?
           </button>
@@ -129,9 +64,11 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
     </div>
   </div>
 </div>
+
 <h2>Je suis le parent</h2>
 <app-card
   [argentdePoche]="argentParent"
   (numberEnfant)="multiplier($event)"
 ></app-card>
 <p>Multiplier parent : {{ resultat }}</p>
+<app-create-formation></app-create-formation>
