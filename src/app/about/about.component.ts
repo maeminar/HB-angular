@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RegistrationFormComponent } from '../registration-form-component/registration-form-component.component';
 import { BonjourService } from '../../shared/bonjour.service';
 import { OnInit } from '@angular/core';
-import { NgForm, FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
+export const motsInterdits = (control:AbstractControl): ValidationErrors | null=> {
+  const mots = ["lol", "mdr"];
+  return mots.includes(control.value) ? {interdit:"Mot interdit"}:null
+}
+
+export const alphaNumericValidator = (control: AbstractControl): ValidationErrors | null=> {
+  const specialChar = /[\!\@\#\$\%\^\&\*\(\)\-\_\+\=\{\}\[\]\|;:'",<.>/?]/g;
+  return !specialChar.test(control.value) ? {requis: "Le mot de passe doit contenir au moins un caractère spécial" } : null;
+}
 
 @Component({
   selector: 'app-about',
@@ -80,12 +89,16 @@ ngOnInit(): void {
 
 //   // Mon 2eme formulaire
 public form: FormGroup = new FormGroup({
-  name: new FormControl(''),
-  email: new FormControl(''),
+  name: new FormControl('', {validators:[Validators.required, Validators.minLength(5), Validators.maxLength(10), motsInterdits]}),
+  email: new FormControl('', {validators:[Validators.email, motsInterdits]}),
+  password: new FormControl('', {validators: [Validators.required, alphaNumericValidator]})
 });
 submit() {
+  if(this.form.valid){
   console.log(this.form.get('name')?.value);
   console.log(this.form.get('email')?.value);
-}
+  console.log(this.form.get('password')?.value);
+  this.form.reset(); // Remettre le formulaire à 0
+}}
 
 }

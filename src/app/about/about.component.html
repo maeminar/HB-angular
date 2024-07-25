@@ -72,6 +72,17 @@
 
 <div class="container">
   <form (ngSubmit)="submit()" [formGroup]="form">
+    <p>message : {{ form.controls["name"].errors | json }}</p>
+    <!--Pour les afficher les erreurs des validators-->
+    @if (form.controls['name'].invalid && form.controls['name'].touched ||
+    form.controls['name'].dirty) { @if
+    (form.controls['name'].errors?.['minlength']) {
+    <div class="alert alert-danger">trop court</div>
+    } @if (form.controls['name'].errors?.['maxlength']) {
+    <div class="alert alert-danger">trop long</div>
+    } @if (form.controls['name'].errors?.['interdit']) {
+    <div class="alert alert-danger">Mot interdit</div>
+    } }
     <div class="mb-3 row">
       <label for="name" class="col-sm-2 col-form-label">First Name</label>
       <div class="col-sm-10 input-group">
@@ -86,6 +97,13 @@
         />
       </div>
     </div>
+    <p>message : {{ form.controls["email"].errors | json }}</p>
+    <!--Pour les afficher les erreurs des validators-->
+    @if (form.controls['email'].invalid && form.controls['email'].touched ||
+    form.controls['email'].dirty) { @if
+    (form.controls['email'].errors?.['email']) {
+    <div class="alert alert-danger">Ceci n'est pas un mail valide.</div>
+    }}
     <div class="mb-3 row">
       <label for="email" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10 input-group">
@@ -97,6 +115,31 @@
           type="email"
           class="form-control"
           formControlName="email"
+        />
+      </div>
+    </div>
+    <p>message : {{ form.controls["password"].errors | json }}</p>
+    <!--Pour les afficher les erreurs des validators-->
+    @if (form.controls['password'].invalid && form.controls['password'].touched
+    || form.controls['password'].dirty) { @if
+    (form.controls['password'].errors?.['requis']) {
+    <div class="alert alert-danger">
+      Le mot de passe doit contenir au moins un caractère spécial
+    </div>
+    }}
+    <div class="mb-3 row">
+      <label for="password" class="col-sm-2 col-form-label"
+        >Mot de passe :</label
+      >
+      <div class="col-sm-10 input-group">
+        <span class="input-group-text">
+          <i class="bi bi-envelope"></i>
+        </span>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
         />
       </div>
     </div>
