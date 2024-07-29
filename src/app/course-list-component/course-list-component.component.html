@@ -22,53 +22,89 @@ Ajoutez un bouton "S'inscrire" pour chaque formation. -->
   </div>
 </div>
 
-<!-- CARDS -->
-<div class="row justify-content-center my-5">
-  <div class="col-md-4 mb-4" *ngFor="let formation of formations">
-    <div class="card text-center h-100 shadow mb-5 bg-white rounded">
-      <div
-        [ngClass]="{
-          'p-3 text-center h-100': true,
-          'bg-it': formation.domaine === 'IT',
-          'bg-dev': formation.domaine === 'Dev',
-          'bg-design': formation.domaine === 'Design'
-        }"
-      >
-        <img src="{{ formation.image }}" class="card-img-top mb-3" />
-        <div class="card-body">
-          <h2 class="card-title mb-3">{{ formation.nom }}</h2>
-          <p class="card-text">Domaine : {{ formation.domaine }}</p>
-          <p class="card-text">Stack technique : {{ formation.stack }}</p>
-          <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
-          <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
-          <p class="card-text">Nombre de places : {{ formation.places }}</p>
-          <p class="card-text">Prix de la formation : {{ formation.tarif }}</p>
-          <!-- Bouton pour déclencher le modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            S'inscrire
-          </button>
-          <app-registration-form-component></app-registration-form-component>
-          <div *ngIf="formation.places <= 15">
-            <p class="text-danger">Formation complète</p>
+<!-- Trier par recherche -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h3 class="text-center mb-4">
+        Vous recherchez une formation en particulier ?
+      </h3>
+      <div class="input-group mb-3 shadow-sm rounded">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchText"
+          placeholder="Rechercher une formation"
+          aria-label="Rechercher une formation"
+        />
+        <span class="input-group-text bg-primary text-white">
+          <i class="bi bi-search"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="row justify-content-center my-5">
+    <div
+      class="col-md-4 mb-4"
+      *ngFor="let formation of formations | recherche : searchText : 'nom'"
+    >
+      <div class="card text-center h-100 shadow mb-5 bg-white rounded">
+        <div
+          [ngClass]="{
+            'p-3 text-center h-100': true,
+            'bg-it': formation.domaine === 'IT',
+            'bg-dev': formation.domaine === 'Dev',
+            'bg-design': formation.domaine === 'Design'
+          }"
+        >
+          <img src="{{ formation.image }}" class="card-img-top mb-3" />
+          <div class="card-body">
+            <h2 class="card-title mb-3">{{ formation.nom }}</h2>
+            <p class="card-text">Domaine : {{ formation.domaine }}</p>
+            <p class="card-text">Stack technique : {{ formation.stack }}</p>
+            <p class="card-text">Date de rentrée : {{ formation.dates }}</p>
+            <p class="card-text">Titre obtenu : {{ formation.titre }}</p>
+            <p class="card-text">Nombre de places : {{ formation.places }}</p>
+            <p class="card-text">
+              Prix de la formation :
+              {{ formation.tarif | toDollars | number : "1.0-2" }}
+            </p>
+            <!-- Bouton pour déclencher le modal -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              S'inscrire
+            </button>
+            <app-registration-form-component></app-registration-form-component>
+            <div *ngIf="formation.places <= 15">
+              <p class="text-danger">Formation complète</p>
+            </div>
+            <button class="btn btn-info" (click)="afficher(formation)">
+              Et ça se passe où ?
+            </button>
           </div>
-          <button class="btn btn-info" (click)="afficher(formation)">
-            Et ça se passe où ?
-          </button>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<h2>Je suis le parent</h2>
-<app-card
-  [argentdePoche]="argentParent"
-  (numberEnfant)="multiplier($event)"
-></app-card>
-<p>Multiplier parent : {{ resultat }}</p>
-<app-create-formation></app-create-formation>
+  <h2>Je suis le parent</h2>
+  <app-card
+    [argentdePoche]="argentParent"
+    (numberEnfant)="multiplier($event)"
+  ></app-card>
+  <p>Multiplier parent : {{ resultat }}</p>
+  <app-create-formation></app-create-formation>
+
+  <span> {{ today | date : "fullDate" : "EEEE, MMMM d, y" }}</span>
+
+  <p>{{ "1234 5666 7777 7456" | cb }}</p>
+
+  <p>Montant HT : {{ 1000 }}</p>
+  <p>Montant TTC : {{ 1000 | ttc }}</p>
+</div>
